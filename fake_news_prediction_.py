@@ -1,7 +1,7 @@
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score,classification_report,confusion_matrix
 import seaborn as sns
@@ -25,7 +25,7 @@ x=data['text']
 y=data['label']
 
 # convert text to numbers
-vectorizer=CountVectorizer(stop_words='english',max_features=5000)
+vectorizer=TfidfVectorizer(stop_words='english',max_features=5000)
 x_vectorized=vectorizer.fit_transform(x)
 
 # train/test split
